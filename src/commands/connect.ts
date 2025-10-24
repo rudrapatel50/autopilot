@@ -1,7 +1,7 @@
-import chalk from 'chalk';
 import { validateToken } from '../lib/github.js';
 import { saveCurrentToken, getCurrentToken } from '../lib/cerds.js';
 const prompts = require('prompts');
+const chalk = require('chalk');
 
 export async function connect() {
   console.log(chalk.blue('🔗 Connecting to GitHub...\n'));

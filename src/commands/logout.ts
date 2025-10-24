@@ -1,4 +1,4 @@
-import chalk from 'chalk';
+const chalk = require('chalk');
 import { getCurrentToken, deleteCurrentToken } from '../lib/cerds.js';
 
 export async function logout() {

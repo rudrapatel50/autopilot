@@ -1,4 +1,4 @@
-import chalk from 'chalk';
+const chalk = require('chalk');
 import { getCurrentToken } from '../lib/cerds.js';
 import { validateToken } from '../lib/github.js';
 
