@@ -23,6 +23,6 @@ export async function validateToken(token: string) {
         error: 'Invalid token',
       };
     }
-    throw error; // Re-throw other errors (network issues, etc.)
+    throw error; //re-throw other errors
   }
 }

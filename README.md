@@ -7,8 +7,181 @@ It lets developers instantly turn any local folder into a live GitHub repository
 
 Designed for simplicity, Autopilot is ideal for developers who frequently create small experiments, side projects, or micro-repos and want Git/GitHub setup to be completely hands-off.
 
-## Usage
+## Installation
+
+```bash
+npm install -g @git/autopilot
+```
+
+## Features
+
+✅ **Connect to GitHub** - Securely store your GitHub Personal Access Token  
+✅ **Check Connection** - Verify your current GitHub connection status  
+🚧 **Auto-commit & Push** - Automatically commit and push changes (coming soon)  
+🚧 **Watch Mode** - Monitor file changes and auto-push (coming soon)  
+🚧 **Repository Initialization** - Create GitHub repos from local folders (coming soon)
+
+## Commands
+
+### `autopilot connect`
+
+Connect your GitHub account by providing a Personal Access Token (PAT).
+
+```bash
+autopilot connect
+```
+
+**What it does:**
+
+-   Prompts for your GitHub Personal Access Token
+-   Validates the token with GitHub API
+-   Securely stores credentials in your system keychain (macOS Keychain, Windows Credential Manager, Linux Secret Service)
+-   Supports `GITHUB_TOKEN` environment variable as fallback
+-   Only allows one connected account at a time
+
+**Requirements:**
+
+-   A GitHub Personal Access Token with appropriate permissions
+-   You can create one at: https://github.com/settings/personal-access-tokens
+
+### `autopilot user`
+
+Check which GitHub account is currently connected.
+
+```bash
+autopilot user
+```
+
+**What it does:**
+
+-   Displays your connected GitHub username
+-   Shows additional profile information (name, email if available)
+-   Validates that your token is still valid
+
+### `autopilot --help`
+
+Display help information for all available commands.
+
 ```bash
 autopilot --help
+```
+
+### `autopilot --version`
+
+Show the current version of Autopilot.
+
+```bash
 autopilot --version
 ```
+
+## Quick Start
+
+1. **Install Autopilot**
+
+    ```bash
+    npm install -g @rudrapatel50/autopilot
+    ```
+
+2. **Connect your GitHub account**
+
+    ```bash
+    autopilot connect
+    ```
+
+3. **Verify your connection**
+    ```bash
+    autopilot user
+    ```
+
+## How It Works
+
+### Secure Credential Storage
+
+Autopilot uses `@napi-rs/keyring` to securely store your GitHub token in your operating system's native credential manager:
+
+-   **macOS**: Keychain
+-   **Windows**: Credential Manager
+-   **Linux**: Secret Service API (libsecret)
+
+Your token is never stored in plain text files, ensuring your credentials remain secure.
+
+### Token Validation
+
+When you connect, Autopilot validates your token by making a request to GitHub's API (`GET /user`). This ensures:
+
+-   The token is valid and active
+-   You have the necessary permissions
+-   We can retrieve your GitHub username for display
+
+## Development
+
+### Prerequisites
+
+-   Node.js 16+
+-   npm or yarn
+
+### Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/rudrapatel50/autopilot.git
+cd autopilot
+
+# Install dependencies
+npm install
+
+# Build the project
+npm run build
+
+# Link for local development
+npm link
+```
+
+### Project Structure
+
+```
+autopilot/
+├── src/
+│   ├── cli.ts              # CLI entry point and command registration
+│   ├── commands/
+│   │   ├── connect.ts      # GitHub connection logic
+│   │   └── user.ts         # User info display
+│   └── lib/
+│       ├── cerds.ts        # Credential management (keyring)
+│       └── github.ts       # GitHub API interactions
+├── package.json
+├── tsconfig.json
+└── README.md
+```
+
+### Technologies Used
+
+-   **TypeScript** - Type-safe development
+-   **Commander.js** - CLI framework and command parsing
+-   **@napi-rs/keyring** - Cross-platform secure credential storage
+-   **axios** - HTTP client for GitHub API
+-   **prompts** - Interactive CLI prompts
+-   **chalk** - Terminal styling and colors
+
+## Roadmap
+
+-   [x] GitHub authentication with PAT
+-   [x] Secure credential storage
+-   [x] User connection status
+-   [ ] Repository initialization (`autopilot init`)
+-   [ ] Manual commit and push (`autopilot push`)
+-   [ ] Watch mode with auto-commit/push (`autopilot watch`)
+-   [ ] Configuration file support
+-   [ ] Multiple account support
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+MIT License - see LICENSE file for details
+
+## Author
+
+Rudra Patel ([@rudrapatel50](https://github.com/rudrapatel50))
