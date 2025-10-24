@@ -1,11 +1,17 @@
 {
   "name": "@rudrapatel50/autopilot",
   "version": "1.0.1",
-  "description": "",
+  "description": "A CLI that watches your project, commits, and pushes automatically",
   "main": "index.js",
   "bin": {
     "autopilot": "dist/cli.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rudrapatel50/autopilot.git"
+  },
+  "homepage": "https://rudrapatel50.github.io/gitautopilot-website/",
+  "keywords": ["git", "automation", "cli", "github", "commit"],
   "files": [
     "dist",
     "README.md",
@@ -20,7 +26,7 @@
   "engines": {
     "node": ">=18"
   },
-  "author": "",
+  "author": "Rudra Patel",
   "license": "ISC",
   "dependencies": {
     "@napi-rs/keyring": "^1.2.0",
