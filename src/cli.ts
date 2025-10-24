@@ -2,6 +2,7 @@
 import { Command } from 'commander';
 import { connect } from "./commands/connect"
 import { user } from './commands/user';
+import { logout } from './commands/logout';
 
 const program = new Command();
 
@@ -18,6 +19,12 @@ program
 
 program
     .command("user")
+    .description("Check which GitHub account is currently connected")
     .action(user);
+
+program
+    .command("logout")
+    .description("Disconnect your GitHub account and remove stored credentials")
+    .action(logout)
 
 program.parse(process.argv);
