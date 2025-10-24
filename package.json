@@ -1,0 +1,36 @@
+{
+  "name": "@git/autopilot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "autopilot": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "postbuild": "chmod +x dist/cli.js",
+    "clean": "rm -rf dist",
+    "dev": "npm run build && node dist/cli.js --help"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@napi-rs/keyring": "^1.2.0",
+    "axios": "^1.12.2",
+    "chalk": "^5.6.2",
+    "commander": "^14.0.1",
+    "inquirer": "^12.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.9.1",
+    "typescript": "^5.9.3"
+  }
+}
