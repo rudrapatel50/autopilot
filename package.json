@@ -1,6 +1,6 @@
 {
   "name": "@rudrapatel50/autopilot",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A CLI that watches your project, commits, and pushes automatically",
   "main": "index.js",
   "bin": {
@@ -11,7 +11,13 @@
     "url": "https://github.com/rudrapatel50/autopilot.git"
   },
   "homepage": "https://rudrapatel50.github.io/gitautopilot-website/",
-  "keywords": ["git", "automation", "cli", "github", "commit"],
+  "keywords": [
+    "git",
+    "automation",
+    "cli",
+    "github",
+    "commit"
+  ],
   "files": [
     "dist",
     "README.md",

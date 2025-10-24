@@ -3,6 +3,8 @@ import { Command } from 'commander';
 import { connect } from "./commands/connect"
 import { user } from './commands/user';
 import { logout } from './commands/logout';
+import { push } from './commands/push';
+import { init } from './commands/init';
 
 const program = new Command();
 
@@ -26,5 +28,14 @@ program
     .command("logout")
     .description("Disconnect your GitHub account and remove stored credentials")
     .action(logout)
+
+program
+    .command("push")
+    .action(push);
+
+program
+    .command("init")
+    .description("Initialize a git repo and push to github")
+    .action(init);
 
 program.parse(process.argv);
