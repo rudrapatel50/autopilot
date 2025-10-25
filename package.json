@@ -1,6 +1,6 @@
 {
   "name": "@rudrapatel50/autopilot",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A CLI that watches your project, commits, and pushes automatically",
   "main": "index.js",
   "bin": {
