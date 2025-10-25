@@ -31,6 +31,7 @@ program
 
 program
     .command("push")
+    .description("Commit and push changes to github")
     .action(push);
 
 program
