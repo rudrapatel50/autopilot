@@ -33,7 +33,7 @@
     "node": ">=18"
   },
   "author": "Rudra Patel",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@napi-rs/keyring": "^1.2.0",
     "axios": "^1.12.2",
