@@ -5,6 +5,7 @@ import { user } from './commands/user';
 import { logout } from './commands/logout';
 import { push } from './commands/push';
 import { init } from './commands/init';
+import { watch } from './commands/watch';
 
 const program = new Command();
 
@@ -38,5 +39,9 @@ program
     .command("init")
     .description("Initialize a git repo and push to github")
     .action(init);
+
+program
+    .command("watch")
+    .action(watch);
 
 program.parse(process.argv);
